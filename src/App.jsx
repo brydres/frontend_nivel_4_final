@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Register from "./register/Register";
 
+
+/* import { Dropdown } from "flowbite-react"; */
+import Login from "./login/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Perfil from "./perfil/Perfil";
+import Dashboard from "./dashboard/Dashboard";
+import Usuarios from "./opciones/Usuarios";
+import Roles from "./opciones/Roles";
+import Parametros from "./opciones/Parametros";
+
+import Bitacoras from "./opciones/Bitacoras";
+import EditPerfil from "./perfil/EditPerfil";
+import Paginas from "./opciones/Paginas";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/perfil/:id" element={<Perfil />} />
+          <Route path="/editarperfil/:id" element={<EditPerfil />} />
+          <Route path="/dashboard/:id" element={<Dashboard />} />
+          <Route path="/roles/:id" element={<Roles />} />
+          <Route path="/usuarios/:id" element={<Usuarios />} />
+          <Route path="/bitacoras/:id" element={<Bitacoras />} />
+          <Route path="/paginas/:id" element={<Paginas />} />
+          <Route path="/parametros" element={<Parametros />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
