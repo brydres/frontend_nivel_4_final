@@ -1,7 +1,6 @@
 import "./App.css";
 import Register from "./register/Register";
 
-
 /* import { Dropdown } from "flowbite-react"; */
 import Login from "./login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
